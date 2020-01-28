@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+    routes:
+      heroes-service:
+        path: /heroes/**
+        url: heroes-service
+        stripPrefix: false
+        sensitiveHeaders:
